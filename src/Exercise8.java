@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Exercise8 {
 
-    int createRandomNumber() {
+    static int createRandomNumber() {
         Random random = new Random();
         return random.nextInt(100);
     }
@@ -36,13 +36,12 @@ public class Exercise8 {
     int[] sortAscending(int[] arr) {
         int length = arr.length;
         for (int element = 0; element < length - 1; element++) {
-            int minIndex = element; // Track the index of the minimum element
+            int minIndex = element;
             for (int minimum = element + 1; minimum < length; minimum++) {
                 if (arr[minimum] < arr[minIndex]) {
-                    minIndex = minimum; // Update the index of the minimum element
+                    minIndex = minimum;
                 }
             }
-            // Swap the elements after both loops
             int temp = arr[element];
             arr[element] = arr[minIndex];
             arr[minIndex] = temp;
