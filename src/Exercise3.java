@@ -1,8 +1,8 @@
 import java.util.Random;
 
-class Exercise2 {
+class Exercise3 {
 
-    int getRandomNumber() {
+     int getRandomNumber() {
         Random random = new Random();
         return random.nextInt(50) * 5;
     }
@@ -19,7 +19,7 @@ class Exercise2 {
         int start = 0, end = 0;
         int length = arr.length;
         int temp;
-        for (int i = 0; i < length / 2; i++) {
+        for (int i = 0; i <= length / 2; i++) {
             if (arr[i] % 2 != 0 && arr[i] % 5 == 0) {
                 temp = arr[start];
                 arr[start] = arr[i];
@@ -39,7 +39,7 @@ class Exercise2 {
         int[] newArr = arr;
         int temp;
         int length = arr.length;
-        for (int i = 0; i < length / 2; i++) {
+        for (int i = 0; i <= length / 2; i++) {
             temp = arr[i];
             arr[i] = arr[length - 1 - i];
             arr[length - 1 - i] = temp;
@@ -47,7 +47,7 @@ class Exercise2 {
         return newArr;
     }
 
-    void print(int[] arr) {
+    static void print(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
@@ -55,10 +55,9 @@ class Exercise2 {
     }
 
     public static void main(String[] args) {
-        Exercise2 e2 = new Exercise2();
-        int[] arr = e2.createArray(5);
-        int[] firstArr = e2.FirstArray(arr);
-        int[] secondArr = e2.SecondArray(firstArr);
-        e2.print(secondArr);
+        Exercise3 e2 = new Exercise3();
+        int[] arr = e2.createArray(10);
+        e2.print(e2.FirstArray(arr));
+        e2.print(e2.SecondArray(e2.FirstArray(arr)));
     }
 }
