@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-public class Test {
+public class First_Test_Exercise {
     public int countValidPairs(int[] numbers, int k) {
         // Dùng để lưu giá trị đã xuất hiện  trong 1  mảng.
         HashSet<Integer> numSet = new HashSet<>();
@@ -21,7 +21,7 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        Test counter = new Test();
+        First_Test_Exercise counter = new First_Test_Exercise();
 
         int[] numbers1 = {1, 1, 1, 2};
         int k1 = 1;
