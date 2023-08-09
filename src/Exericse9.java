@@ -1,6 +1,18 @@
 public class Exericse9 {
+    private final int ARRAY_MAX_LENGTH = 25;
+    private final int ARRAY_MIN_LENGTH = 10;
+
+    boolean isHasPositiveNumber(int[] arr) {
+        for (int num : arr) {
+            if (num > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     int[] createArray(int quantity) {
-        if (quantity >= 10 && quantity <= 25) {
+        if (quantity >= ARRAY_MIN_LENGTH && quantity <= ARRAY_MAX_LENGTH) {
             int[] newArr = new int[quantity];
             for (int i = 0; i < quantity; i++) {
                 newArr[i] = Exercise8.createRandomNumber();
@@ -21,42 +33,42 @@ public class Exericse9 {
     }
 
     int sumOfPositiveNumber(int[] arr) {
-        int result = 0;
-        int length = arr.length;
-        for (int i = 0; i < length; i++) {
-            if (arr[i] > 0) {
-                result += arr[i];
-            }
-        }
-        if (result == 0) {
+        if (!isHasPositiveNumber(arr)) {
             System.out.println("This array hasn't positive number!");
+        } else {
+            int result = 0;
+            for (int num : arr) {
+                if (num > 0) {
+                    result += num;
+                }
+            }
+            return result;
         }
-        return result;
+        return -1;
     }
 
     int multiplyOfPositiveNumber(int[] arr) {
-        int result = 1;
-        int length = arr.length;
-        int count = 0;
-        for (int i = 0; i < length; i++) {
-            if (arr[i] > 0) {
-                result *= arr[i];
-                count++;
-            }
-        }
-        if (count == 0) {
+        if (!isHasPositiveNumber(arr)) {
             System.out.println("This array hasn't positive number!");
+        } else {
+            int result = 1;
+            for (int num : arr) {
+                if (num > 0) {
+                    result *= num;
+                }
+            }
+            return result;
         }
-        return result;
+        return -1;
     }
 
-    static void swap(int[] arr, int one, int two) {
+    void swap(int[] arr, int one, int two) {
         int temp = arr[one];
         arr[one] = arr[two];
         arr[two] = temp;
     }
 
-    static int partition(int[] arr, int low, int high) {
+    int partition(int[] arr, int low, int high) {
         int i = low - 1;
         int pivot = arr[high];
         for (int j = low; j < high; j++) {
@@ -73,7 +85,7 @@ public class Exericse9 {
         return (i + 1);
     }
 
-    static void quickSort(int[] arr, int low, int high) {
+    void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             int pivot = partition(arr, low, high);
             quickSort(arr, low, pivot - 1);
@@ -81,20 +93,21 @@ public class Exericse9 {
         }
     }
 
-
     public static void main(String[] args) {
         Exericse9 e = new Exericse9();
-        int[] array = e.createArray(10);
+        int[] array = e.createArray(9);
 
-        Exercise3.print(array);
-        System.out.println("--------------");
+        if (array != null) {
+            Exercise3.print(array);
+            System.out.println("--------------");
 
-        e.reverseArray(array);
-        Exercise3.print(array);
+            e.reverseArray(array);
+            Exercise3.print(array);
 
-        System.out.println("---------------");
+            System.out.println("---------------");
 
-        Exericse9.quickSort(array, 0, array.length - 1);
-        Exercise3.print(array);
+            e.quickSort(array, 0, array.length - 1);
+            Exercise3.print(array);
+        }
     }
 }

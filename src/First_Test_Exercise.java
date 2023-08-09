@@ -7,7 +7,6 @@ public class First_Test_Exercise {
         int count = 0;
 
         for (int num : numbers) {
-            //
             if (numSet.contains(num - k)) {
                 count++;
             }

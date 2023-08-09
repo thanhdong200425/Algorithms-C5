@@ -3,7 +3,7 @@ import java.util.Random;
 public class Exercise4 {
     static int getRandomNumber() {
         Random random = new Random();
-        return random.nextInt(100);
+        return random.nextInt(1, 1000);
     }
 
     static int[] createArray(int quantity) {

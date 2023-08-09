@@ -2,7 +2,7 @@ import java.util.Random;
 
 class Exercise3 {
 
-     int getRandomNumber() {
+    int getRandomNumber() {
         Random random = new Random();
         return random.nextInt(50) * 5;
     }
@@ -55,9 +55,16 @@ class Exercise3 {
     }
 
     public static void main(String[] args) {
+        final long startTime = System.nanoTime(); // Calculate startTime
+
         Exercise3 e2 = new Exercise3();
         int[] arr = e2.createArray(10);
         e2.print(e2.FirstArray(arr));
         e2.print(e2.SecondArray(e2.FirstArray(arr)));
+
+        final long endTime = System.nanoTime(); // Calculate endTime
+        long totalTimeNano = endTime - startTime;
+        double totalTimeMillis = (double) totalTimeNano / 1000000; // Convert to milliseconds
+        System.out.println("Total time: " + totalTimeMillis + " milliseconds");
     }
 }

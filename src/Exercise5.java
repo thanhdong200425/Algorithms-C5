@@ -1,16 +1,17 @@
 public class Exercise5 {
 
     static int[] rearrange(int[] arr) {
-        int beginPosition = 0;
-        int temp;
-        // Represent for the quantity of loop
-        for (int i = 2; i <= arr.length; i += 2) {
-            temp = arr[i - 1];
-            arr[i - 1] = arr[beginPosition];
-            arr[beginPosition++] = temp;
-
+        int left = 0;
+        int right = arr.length - 1;
+        int[] newArr = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 != 0) {
+                newArr[left++] = arr[i];
+            } else {
+                newArr[right--] = arr[i];
+            }
         }
-        return arr;
+        return newArr;
     }
 
     static int[] createArray(int length) {
